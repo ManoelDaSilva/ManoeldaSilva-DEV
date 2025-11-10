@@ -6,15 +6,16 @@
   <title>Manoel da Silva — Smart Digital Solutions | Soluções Digitais Inteligentes</title>
   <meta name="description" content="Desenvolvedor especializado em software moderno, landing pages e automações inteligentes. Foco em clareza, desempenho e resultados concretos.">
   
-  <!-- Pré-carregamento de recursos críticos -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="dns-prefetch" href="https://images.unsplash.com">
-  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230ea5a4' rx='20'/><text x='50' y='68' font-family='Arial, sans-serif' font-size='48' text-anchor='middle' fill='white'>M</text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230ea5a4' rx='20'/><text x='50' y='68' font-family='Arial, sans-serif' font-size='48' text-anchor='middle' fill='white'>M</text></svg>">
+  <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230ea5a4' rx='20'/><text x='50' y='68' font-family='Arial, sans-serif' font-size='48' text-anchor='middle' fill='white'>M</text></svg>">
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Pré-carregamento da fonte Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -152,6 +153,33 @@
       margin-top: 4rem;
     }
     
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: #e6eef6;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .social-link:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
     .section-title {
       position: relative;
       display: inline-block;
@@ -275,6 +303,16 @@
       
       h1.display-6 {
         font-size: 1.8rem;
+      }
+      
+      .social-links {
+        gap: 1rem;
+      }
+      
+      .social-link {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
       }
     }
   </style>
@@ -453,6 +491,22 @@
   <div class="container">
     <p>© <span id="year"></span> Manoel da Silva — All rights reserved</p>
     <p class="small text-muted mt-2">Smart Digital Solutions for Real Impact</p>
+    
+    <!-- Redes Sociais -->
+    <div class="social-links">
+      <a href="https://github.com/ManoelDaSilva" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
+        <i class="bi bi-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/manoel-da-silva-3a1a29233/" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <i class="bi bi-linkedin"></i>
+      </a>
+      <a href="https://www.instagram.com/tradutordasilva.oficial/" class="social-link" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a href="https://pt.fiverr.com/manoel_da_silva" class="social-link" target="_blank" rel="noopener" aria-label="Fiverr">
+        <i class="bi bi-briefcase-fill"></i>
+      </a>
+    </div>
   </div>
 </footer>
 
