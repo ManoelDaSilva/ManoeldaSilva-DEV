@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Manoel da Silva — Smart Digital Solutions | Soluções Digitais Inteligentes</title>
+  <meta name="description" content="Desenvolvedor especializado em software moderno, landing pages e automações inteligentes. Foco em clareza, desempenho e resultados concretos.">
+  
+  <!-- Pré-carregamento de recursos críticos -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://images.unsplash.com">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Pré-carregamento da fonte Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:#0ea5a4;
+      --accent-dark:#0d9494;
+      --text-dark:#0b1220;
+      --text-muted:#6b7280;
+      --soft-gray:#f3f4f6;
+      --border-light:#e5e7eb;
+    }
+    
+    body{
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text-dark);
+      background: #fff;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    
+    header{
+      position: sticky; 
+      top:0; 
+      background:#fff; 
+      z-index:1000;
+      border-bottom:1px solid var(--border-light);
+      backdrop-filter: blur(8px);
+    }
+    
+    .nav-link{
+      color:var(--text-muted);
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover, 
+    .nav-link:focus {
+      color:var(--accent);
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--accent);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after,
+    .nav-link:focus::after {
+      width: 100%;
+    }
+
+    .hero-image{
+      border-radius:14px; 
+      overflow:hidden;
+      animation: fadeIn 1.4s ease both;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    
+    .hero-image img{
+      width:100%; 
+      height:auto; 
+      object-fit:cover;
+      transform:scale(1.05);
+      transition:transform .9s ease;
+    }
+    
+    .hero-image:hover img{
+      transform:scale(1);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity:0; 
+        transform:translateY(20px);
+      } 
+      to {
+        opacity:1; 
+        transform:translateY(0);
+      }
+    }
+
+    .btn-primary{
+      background:var(--accent); 
+      border:none; 
+      border-radius:.6rem;
+      padding:.7rem 1.5rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(14, 165, 164, 0.2);
+    }
+    
+    .btn-primary:hover,
+    .btn-primary:focus {
+      filter:brightness(.95);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(14, 165, 164, 0.3);
+    }
+
+    .card-clean{
+      border:1px solid var(--border-light); 
+      border-radius:12px; 
+      padding:1.8rem;
+      transition:transform .3s ease, box-shadow .3s ease;
+      height: 100%;
+      background: #fff;
+    }
+    
+    .card-clean:hover{
+      transform:translateY(-6px);
+      box-shadow:0 12px 24px rgba(0,0,0,0.08);
+    }
+    
+    .service-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(14, 165, 164, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    footer{
+      padding:3rem 0; 
+      background:#0b1220; 
+      color:#e6eef6;
+      margin-top: 4rem;
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 3px;
+      background: var(--accent);
+      bottom: -8px;
+      left: 0;
+      border-radius: 2px;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      cursor: pointer;
+    }
+    
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-top: 1rem;
+    }
+    
+    .mobile-nav.active {
+      display: flex;
+    }
+    
+    .mobile-nav .nav-link {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    
+    .mobile-nav .nav-link:last-child {
+      border-bottom: none;
+    }
+    
+    .form-control {
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+      padding: 0.75rem 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(14, 165, 164, 0.1);
+    }
+    
+    .testimonial-card {
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      left: 0;
+      top: -10px;
+      font-size: 3rem;
+      color: var(--accent);
+      opacity: 0.3;
+      font-family: Georgia, serif;
+    }
+    
+    .loading-spinner {
+      display: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease infinite;
+      margin-right: 8px;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .btn-primary.sending .loading-spinner {
+      display: inline-block;
+    }
+    
+    /* Responsividade */
+    @media (max-width: 992px) {
+      .desktop-nav {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero-text {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      
+      h1.display-6 {
+        font-size: 2.2rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .card-clean {
+        padding: 1.5rem;
+      }
+      
+      h1.display-6 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="py-3">
+  <nav class="container d-flex justify-content-between align-items-center">
+    <strong style="color:var(--accent); font-size: 1.25rem;">Manoel da Silva</strong>
+    
+    <div class="desktop-nav d-flex gap-4">
+      <a class="nav-link" href="#services">Services / Serviços</a>
+      <a class="nav-link" href="#about">About / Sobre</a>
+      <a class="nav-link" href="#testimonials">Testimonials / Depoimentos</a>
+      <a class="btn btn-primary btn-sm" href="#contact">Contact / Contato</a>
+    </div>
+    
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+      ☰
+    </button>
+  </nav>
+  
+  <div class="container">
+    <div class="mobile-nav" id="mobileNav">
+      <a class="nav-link" href="#services">Services / Serviços</a>
+      <a class="nav-link" href="#about">About / Sobre</a>
+      <a class="nav-link" href="#testimonials">Testimonials / Depoimentos</a>
+      <a class="nav-link" href="#contact">Contact / Contato</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="container py-5" aria-labelledby="hero-heading">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 hero-text">
+        <h1 class="fw-bold display-6" id="hero-heading">
+          Smart Digital Solutions for Real Impact  
+          <br><span class="text-muted" style="font-size:1rem;">Soluções digitais inteligentes para impacto real</span>
+        </h1>
+        <p class="text-muted">
+          I build modern software, landing pages and automation workflows.
+          <br>Eu desenvolvo software moderno, landing pages e automações inteligentes.
+        </p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="#contact" class="btn btn-primary">Start a Project / Iniciar Projeto</a>
+          <a href="#services" class="btn btn-outline-secondary">View Services / Ver Serviços</a>
+        </div>
+      </div>
+
+      <div class="col-lg-6 hero-image">
+        <img 
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" 
+          alt="Team collaborating on digital project" 
+          loading="lazy"
+        >
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="container py-5" aria-labelledby="services-heading">
+    <h3 class="fw-semibold mb-4 section-title" id="services-heading">Services / Serviços</h3>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card-clean h-100">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h5>Landing Pages Modernas</h5>
+          <p class="text-muted small">Conversion-focused UX ↓ Designed to impress</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-clean h-100">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <h5>Desenvolvimento C++ & Python</h5>
+          <p class="text-muted small">Desktop • Automations • System Tools</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-clean h-100">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9"></path>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+          </div>
+          <h5>AI Workflow & Prompt Design</h5>
+          <p class="text-muted small">Boost efficiency through intelligent automation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="container py-5" aria-labelledby="about-heading">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 order-lg-2">
+        <img 
+          src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=80" 
+          style="border-radius:14px; width:100%;" 
+          alt="Developer working on laptop" 
+          loading="lazy"
+        >
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <h3 class="section-title" id="about-heading">About Me / Sobre Mim</h3>
+        <p class="text-muted">
+          Developer with a focus on clarity, performance and business results.
+          <br>Desenvolvedor com foco em clareza, desempenho e resultados concretos.
+        </p>
+        <div class="mt-4">
+          <h5 class="fw-semibold">Skills / Habilidades</h5>
+          <div class="d-flex flex-wrap gap-2 mt-2">
+            <span class="badge bg-light text-dark border">C++</span>
+            <span class="badge bg-light text-dark border">Python</span>
+            <span class="badge bg-light text-dark border">JavaScript</span>
+            <span class="badge bg-light text-dark border">HTML/CSS</span>
+            <span class="badge bg-light text-dark border">Bootstrap</span>
+            <span class="badge bg-light text-dark border">AI Integration</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="container py-5" aria-labelledby="testimonials-heading">
+    <h3 class="fw-semibold mb-4 section-title" id="testimonials-heading">Testimonials / Depoimentos</h3>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card-clean testimonial-card">
+          <p>“Professional, precise and reliable. Delivered exactly what was promised ahead of schedule.”</p>
+          <div class="text-muted small mt-2">— Client, 2025</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card-clean testimonial-card">
+          <p>“Melhorou nosso fluxo digital em poucos dias. Recomendo muito o trabalho!”</p>
+          <div class="text-muted small mt-2">— Cliente BR, 2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="container py-5" aria-labelledby="contact-heading">
+    <h3 class="section-title" id="contact-heading">Contact / Contato</h3>
+    <form action="https://formspree.io/f/your-id" method="POST" class="mt-4" id="contactForm">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <input name="name" class="form-control" placeholder="Name / Nome" required aria-label="Your name">
+        </div>
+        <div class="col-md-6 mb-3">
+          <input name="email" class="form-control" placeholder="Email" type="email" required aria-label="Your email">
+        </div>
+      </div>
+      <div class="mb-3">
+        <textarea name="message" class="form-control" placeholder="Message / Mensagem" rows="5" required aria-label="Your message"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit" id="submitBtn">
+        <span class="loading-spinner"></span>
+        Send / Enviar
+      </button>
+    </form>
+  </section>
+</main>
+
+<footer class="text-center">
+  <div class="container">
+    <p>© <span id="year"></span> Manoel da Silva — All rights reserved</p>
+    <p class="small text-muted mt-2">Smart Digital Solutions for Real Impact</p>
+  </div>
+</footer>
+
+<script>
+  // Atualizar ano no footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+  
+  // Menu mobile
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  
+  if (mobileMenuBtn && mobileNav) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('active');
+      mobileMenuBtn.textContent = mobileNav.classList.contains('active') ? '✕' : '☰';
+    });
+    
+    // Fechar menu ao clicar em um link
+    const mobileLinks = mobileNav.querySelectorAll('.nav-link');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+        mobileMenuBtn.textContent = '☰';
+      });
+    });
+  }
+  
+  // Validação e envio do formulário
+  const contactForm = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  
+  if (contactForm && submitBtn) {
+    contactForm.addEventListener('submit', function(e) {
+      // Simulação de envio
+      submitBtn.classList.add('sending');
+      submitBtn.disabled = true;
+      
+      // Em um caso real, aqui seria a chamada AJAX para o Formspree
+      setTimeout(() => {
+        submitBtn.classList.remove('sending');
+        submitBtn.disabled = false;
+        alert('Message sent successfully! / Mensagem enviada com sucesso!');
+        contactForm.reset();
+      }, 1500);
+      
+      e.preventDefault();
+    });
+  }
+  
+  // Adicionar classe ativa à navegação conforme scroll
+  window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    let current = '';
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      
+      if (scrollY >= (sectionTop - 100)) {
+        current = section.getAttribute('id');
+      }
+    });
+    
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').substring(1) === current) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+</body>
+</html>
