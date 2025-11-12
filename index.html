@@ -590,26 +590,29 @@
   </a>
 </div>
 
+<!-- Botão WhatsApp Flutuante -->
+<div id="whatsapp-button" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; transition: transform 0.3s ease;">
+  <a href="https://wa.me/5511999999999?text=Olá! Gostaria de mais informações sobre seus serviços." 
+     target="_blank" 
+     rel="noopener"
+     style="display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; background: #25D366; border-radius: 50%; color: white; font-size: 28px; text-decoration: none; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); transition: all 0.3s ease;">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+</div>
+
 <script>
-  // WhatsApp Button Scroll Behavior
+  // WhatsApp Button Scroll Behavior - CORRIGIDO
   document.addEventListener('DOMContentLoaded', function() {
     const whatsappButton = document.getElementById('whatsapp-button');
-    let lastScrollTop = 0;
     
     window.addEventListener('scroll', function() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       
-      if (scrollTop > lastScrollTop) {
-        // Scrolling down - hide button
-        whatsappButton.style.transform = 'translateY(80px)';
-      } else {
-        // Scrolling up - show button
-        whatsappButton.style.transform = 'translateY(0)';
-      }
-      
-      lastScrollTop = scrollTop;
+      // Apenas ajusta a posição vertical, mas SEMPRE visível
+      whatsappButton.style.transform = `translateY(${scrollTop * 0.1}px)`;
     });
   });
 </script>
+  
 </body>
 </html>
